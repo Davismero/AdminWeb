@@ -1,0 +1,45 @@
+/*
+ * TosaBus — tokens visuales del panel web (T-02, RNF-07).
+ * Fuente única de verdad: AGENTS.md, sección 5 "Identidad visual".
+ * Nunca escribas colores hexadecimales a mano en componentes TSX: usa estas variables.
+ */
+:root {
+  /* Paleta (AGENTS.md §5) */
+  --tosabus-verde: #1f7a33; /* Primario: barra superior, botones principales */
+  --tosabus-verde-oscuro: #14532d; /* Énfasis, estado presionado */
+  --tosabus-dorado: #f5b700; /* Acento: resaltados, franja del logo */
+  --tosabus-azul: #2e93d1; /* Informativo: mapa, iconos de ubicación */
+  --tosabus-crema: #f5f9f3; /* Fondo de pantallas */
+  --tosabus-blanco: #ffffff; /* Superficies (tarjetas) */
+  --tosabus-texto: #1b2a1f; /* Texto principal (carbón verdoso) */
+  --tosabus-texto-secundario: #5a6b5e; /* Texto secundario (gris musgo) */
+  --tosabus-borde: #d6e0d4; /* Bordes y divisores */
+  --tosabus-exito: #2e7d32; /* Pago aprobado, boleto válido */
+  --tosabus-advertencia: #ed6c02; /* Reserva por vencer */
+  --tosabus-error: #c62828; /* Pago rechazado, boleto inválido */
+
+  /* Tipografía: Inter con respaldo del sistema. Textos de interfaz en español. */
+  --tosabus-fuente: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Esquinas redondeadas: de 8 a 12 px en tarjetas y botones. */
+  --tosabus-radio: 8px;
+  --tosabus-radio-lg: 12px;
+
+  /* Espaciado: múltiplos de 8 px. */
+  --tosabus-espacio-1: 8px;
+  --tosabus-espacio-2: 16px;
+  --tosabus-espacio-3: 24px;
+  --tosabus-espacio-4: 32px;
+
+  /*
+   * Reglas de uso (AGENTS.md §5):
+   * - Texto blanco sobre verde; texto oscuro (#1B2A1F) sobre dorado.
+   *   Nunca texto blanco sobre dorado ni dorado sobre fondo claro.
+   * - Azul cielo solo para iconos, mapa y elementos informativos;
+   *   nunca para texto pequeño sobre blanco.
+   * - Contraste mínimo recomendado de 4.5:1.
+   * - El color nunca es la única señal: éxito, advertencia y error llevan
+   *   icono y texto. El éxito usa check para distinguirse del verde primario.
+   * - Estilo limpio y amable: mucho blanco, dorado solo como detalle.
+   */
+}

@@ -1,0 +1,11 @@
+/* Reset mínimo neutro: los tokens de marca y la tipografía llegan en T-02. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
