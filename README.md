@@ -4,11 +4,10 @@ Panel de administración del proyecto **TosaBus**: herramienta complementaria
 para que los administradores gestionen rutas, flota, viajes, reservas,
 pagos y reportes.
 
-Esta primera entrega corresponde a **T-01: crear la estructura del repositorio
-y el entorno con Docker y PostgreSQL** y cubre **RNF-13 (despliegue
-reproducible con Docker siguiendo la guía de instalación)**. Por ahora el panel
-solo muestra un texto de ejemplo. El tema visual (colores y tipografía) llega en
-T-02 y las pantallas de administración a partir de T-08.
+Esta entrega incluye **T-01: crear la estructura del repositorio y el entorno
+con Docker y PostgreSQL** (**RNF-13**, despliegue reproducible) y **T-02:
+definir el tema visual (colores y tipografía)** (**RNF-07**, interfaz clara y en
+español). Las pantallas de administración llegan a partir de T-08.
 
 ## Requisitos
 
@@ -101,7 +100,7 @@ src/
 ├── features/     # Funcionalidades del dominio: ver su README
 ├── shared/       # Código reutilizable: ver su README
 ├── services/     # Cliente base de la API (api.ts)
-├── styles/       # Estilos globales (reset.css); los tokens llegan en T-02
+├── styles/       # tokens.css (paleta y tipografía) y tema.css (estilos base)
 ├── test/         # Configuración global de las pruebas
 └── main.tsx      # Punto de entrada
 ```
@@ -111,10 +110,42 @@ Fuera de `src/`: `vite.config.ts` (desarrollo y compilación),
 `.prettierrc.json` (calidad de código), `Dockerfile`, `nginx.conf` y
 `.dockerignore` (despliegue reproducible).
 
+## Tema visual (T-02, RNF-07)
+
+Los colores y la tipografía se definen **una sola vez** en
+[`src/styles/tokens.css`](src/styles/tokens.css) y se aplican en
+[`src/styles/tema.css`](src/styles/tema.css). Nunca escribas un color
+hexadecimal a mano en un componente: usa las variables CSS.
+
+| Uso                                | Variable                     | Valor     |
+| ---------------------------------- | ---------------------------- | --------- |
+| Primario (botones, barra superior) | `--tosabus-verde`            | `#1F7A33` |
+| Énfasis / presionado               | `--tosabus-verde-oscuro`     | `#14532D` |
+| Acento (solo detalles)             | `--tosabus-dorado`           | `#F5B700` |
+| Informativo (mapa, iconos)         | `--tosabus-azul`             | `#2E93D1` |
+| Fondo de pantallas                 | `--tosabus-crema`            | `#F5F9F3` |
+| Superficies (tarjetas)             | `--tosabus-blanco`           | `#FFFFFF` |
+| Texto principal                    | `--tosabus-texto`            | `#1B2A1F` |
+| Texto secundario                   | `--tosabus-texto-secundario` | `#5A6B5E` |
+| Bordes y divisores                 | `--tosabus-borde`            | `#D6E0D4` |
+| Éxito                              | `--tosabus-exito`            | `#2E7D32` |
+| Advertencia                        | `--tosabus-advertencia`      | `#ED6C02` |
+| Error                              | `--tosabus-error`            | `#C62828` |
+
+Reglas de uso: texto blanco sobre verde y texto oscuro sobre dorado (nunca
+blanco sobre dorado); el azul cielo solo para iconos, mapa y elementos
+informativos; contraste mínimo recomendado de 4.5:1; esquinas redondeadas de
+8–12 px y espaciado en múltiplos de 8. El color nunca es la única señal: éxito,
+advertencia y error llevan icono y texto (el éxito usa un check).
+
+La tipografía es **Inter** con respaldo del sistema (`system-ui`). Los archivos
+locales de Inter 400/500/700 se añadirán más adelante en `src/assets/fonts/`;
+hoy no se referencia ningún asset inexistente.
+
 ## Alcance de esta tarea
 
 - **Incluye:** estructura del repositorio, TypeScript estricto, ESLint,
-  Prettier, Vitest, React Testing Library, cliente base de la API, Docker y
-  documentación.
-- **No incluye:** paleta de marca ni tipografía (T-02), autenticación (T-03 a
-  T-05) ni pantallas de rutas, flota o ventas (T-08 en adelante).
+  Prettier, Vitest, React Testing Library, cliente base de la API, Docker,
+  tokens visuales (paleta, tipografía y reglas de contraste) y documentación.
+- **No incluye:** autenticación (T-03 a T-05), pantallas de rutas, flota o
+  ventas (T-08 en adelante) ni archivos binarios de la fuente Inter.

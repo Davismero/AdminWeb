@@ -1,0 +1,117 @@
+/* Estilos base del panel web de TosaBus (T-02). Solo se usan tokens de tokens.css. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--tosabus-crema);
+  color: var(--tosabus-texto);
+  font-family: var(--tosabus-fuente);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* Botón principal: texto blanco sobre verde TosaBus. */
+.tosabus-boton-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--tosabus-espacio-1);
+  min-height: 40px;
+  padding: var(--tosabus-espacio-1) var(--tosabus-espacio-2);
+  border: 1px solid var(--tosabus-verde-oscuro);
+  border-radius: var(--tosabus-radio);
+  background: var(--tosabus-verde);
+  color: var(--tosabus-blanco);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tosabus-boton-principal:hover {
+  background: var(--tosabus-verde-oscuro);
+}
+
+.tosabus-boton-principal:focus-visible {
+  outline: 2px solid var(--tosabus-verde-oscuro);
+  outline-offset: 2px;
+}
+
+/* Superficie de tarjeta: blanca, borde gris y radio de 12 px. */
+.tosabus-tarjeta {
+  width: 100%;
+  max-width: 640px;
+  padding: var(--tosabus-espacio-3);
+  border: 1px solid var(--tosabus-borde);
+  border-radius: var(--tosabus-radio-lg);
+  background: var(--tosabus-blanco);
+  box-shadow: 0 2px 8px var(--tosabus-borde);
+}
+
+.tosabus-titulo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--tosabus-texto);
+}
+
+.tosabus-texto-secundario {
+  color: var(--tosabus-texto-secundario);
+}
+
+/* Acento dorado solo como detalle: texto oscuro sobre dorado. */
+.tosabus-detalle-dorado {
+  display: inline-block;
+  width: 48px;
+  height: 4px;
+  border-radius: var(--tosabus-radio);
+  background: var(--tosabus-dorado);
+}
+
+/* Insignia de éxito: color + icono de check + texto (nunca solo color). */
+.tosabus-insignia-exito {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tosabus-espacio-1);
+  padding: var(--tosabus-espacio-1) var(--tosabus-espacio-2);
+  border: 1px solid var(--tosabus-exito);
+  border-radius: var(--tosabus-radio);
+  background: var(--tosabus-exito);
+  color: var(--tosabus-blanco);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tosabus-insignia-exito svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+/* Contenedor de la demo mínima de tema. */
+.tosabus-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--tosabus-espacio-3);
+  padding: var(--tosabus-espacio-4) var(--tosabus-espacio-2);
+}
+
+.tosabus-tarjeta-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tosabus-espacio-2);
+}
